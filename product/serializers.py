@@ -11,7 +11,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 			'id',
 			'product',
 			'email',
-			'review',
+			'comment',
 			'rating',
 			'created_at'
 			)
