@@ -1,0 +1,30 @@
+# Ignore env file
+.env
+
+# Ignore uploaded image files
+/media/*
+/assets/*
+/assets/*
+/assets/*
+
+
+# Ignore swap files and pycs
+*.swo
+*.pyc
+*~
+
+# Ignore bundler config
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Ignore staticfiles
+staticfiles
+
+# Ignore db dumps
+*.dump
+
+# Ignore sqlite db
+db.sqlite3
