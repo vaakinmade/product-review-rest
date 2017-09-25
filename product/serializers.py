@@ -19,7 +19,10 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
-	reviews = ReviewSerializer(many=True, read_only=True)
+	reviews = serializers.HyperlinkedRelatedField(
+		many=True,
+		read_only=True,
+		view_name='apiv2:review-detail')
 	class Meta:
 		fields = (
 			'id',
