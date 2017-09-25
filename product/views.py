@@ -26,6 +26,7 @@ class ListCreateReview(generics.ListCreateAPIView):
 	def get_queryset(self):
 		return self.queryset.filter(product_id=self.kwargs.get('product_pk'))
 
+	# prevent making a review for a different product than the one selected
 	def perform_create(self, serializer):
 		product = get_object_or_404(
 			models.Product, pk=self.kwargs.get('product_pk'))
