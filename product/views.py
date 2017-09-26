@@ -3,6 +3,7 @@ from rest_framework import generics
 from django.shortcuts import get_object_or_404
 from rest_framework import mixins
 from rest_framework import permissions
+from .permissions import IsSuperUser
 from rest_framework.response import Response
 from rest_framework import viewsets
 
@@ -47,7 +48,10 @@ class RetrieveUpdateDestroyReview(generics.RetrieveUpdateDestroyAPIView):
 
 
 class ProductViewSet(viewsets.ModelViewSet):
-	permission_classes = (permissions.DjangoModelPermissions,)
+	permission_classes = (
+		IsSuperUser,
+		permissions.DjangoModelPermissions,)
+
 	queryset = models.Product.objects.all()
 	serializer_class = serializers.ProductSerializer
 
