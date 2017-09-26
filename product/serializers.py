@@ -1,3 +1,5 @@
+from django.db.models import Avg
+
 from rest_framework import serializers
 from . import models
 
@@ -23,11 +25,19 @@ class ProductSerializer(serializers.ModelSerializer):
 		many=True,
 		read_only=True,
 		view_name='apiv2:review-detail')
+	average_rating = serializers.SerializerMethodField()
 	class Meta:
 		fields = (
 			'id',
 			'title',
 			'url',
 			'reviews',
+			'average_rating',
 			)
 		model = models.Product
+
+	def get_average_rating(self, obj):
+		average = obj.reviews.aggregate(Avg('rating')).get('rating__avg')
+		if average is None:
+			return 0
+		return round(average*2) / 2
