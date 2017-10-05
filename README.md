@@ -1,6 +1,6 @@
 # PROVIEW [WIP]
 
-A drf powered product review API. PROVIEW was created to help e-commerce outfits easily have their products reviewed by customers.
+A drf powered product review API. PROVIEW's purpose is to help e-commerce outfits easily have their products reviewed by customers. It is still being actively worked on.
 
 ### Features
 - CRUD API capabilities using class based views
